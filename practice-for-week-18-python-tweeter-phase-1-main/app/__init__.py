@@ -1,4 +1,5 @@
 # !!START
+import random
 from flask import Flask, render_template, redirect
 from .config import Config
 from .tweets import tweets
@@ -18,7 +19,8 @@ def index():
 
 @app.route('/feed')
 def all_tweets():
-    return render_template("feed.html", tweets=tweets)
+    sorted_tweets = sorted(tweets, key=lambda t: datetime.strptime(t['date'], '%m/%d/%y'), reverse=True)
+    return render_template("feed.html", tweets=sorted_tweets)
 
 @app.route('/new', methods=['GET', 'POST'])
 def post_tweet():
@@ -29,8 +31,8 @@ def post_tweet():
             'id': len(tweets),
             'author': form.data['author'],
             'tweet': form.data['tweet'],
-            'date': datetime.today().strftime('%Y-%m-%d'),
-            'likes': 0
+            'date': datetime.today().strftime('%m/%d/%y'),
+            'likes': random.randint(0, 1000000)
         }
         print(new_tweet)
         tweets.append(new_tweet)
