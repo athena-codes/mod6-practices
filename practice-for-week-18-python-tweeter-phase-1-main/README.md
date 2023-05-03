@@ -19,7 +19,6 @@ There is a starter file for this project, which has the following:
 This project has 4 Phases, each with its own starter code.  The starter code for Phase 2 is also the solution code for Phase 1, and the same with Phases 3 and 4.  Please do not look at the solution until you have completed the corresponding phase 🙏🏼
 
 
-
 ## PHASE 1 - FLASK Setup
 
 Lets get that flask server up and running!
