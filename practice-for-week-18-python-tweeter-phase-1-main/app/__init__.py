@@ -14,5 +14,7 @@ def index():
     tweet = choice(tweets)
     return render_template("index.html", tweet=tweet)
 
-
+@app.route('/feed')
+def all_tweets():
+    return render_template("feed.html", tweets=tweets)
 # !!END
