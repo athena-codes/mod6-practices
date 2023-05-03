@@ -1,5 +1,5 @@
 body {
-    background-color: navy;
+    background-color: rgb(137, 137, 255);
     color: whitesmoke;
     display: flex;
     flex-direction: column;
@@ -9,9 +9,10 @@ body {
 
 a {
     text-decoration: none;
-    color: gold;
+    color: rgb(0, 0, 0);
     margin: 5px;
 }
+
 
 nav {
     width: 500px;
@@ -23,6 +24,17 @@ nav {
 
 .tweet {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 10px;
+}
+
+.new-tweet-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

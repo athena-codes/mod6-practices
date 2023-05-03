@@ -2,7 +2,7 @@
 
 {% block main %}
 <h1> Post New Tweet: <h1>
-    <form method="POST" action='/new' class='tweet'>
+    <form method="POST" action='/new' class='new-tweet-form'>
         {{ form.csrf_token }}
         <p>{{ form.author.label }}: {{ form.author }}<p>
         <p>{{ form.tweet.label }}: {{ form.tweet }}<p>
