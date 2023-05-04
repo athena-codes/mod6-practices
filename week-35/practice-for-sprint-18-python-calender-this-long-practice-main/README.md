@@ -31,7 +31,7 @@ for you. Flask-Login installs ... just Flask-Login. :-D Then, `python-dotenv`
 allows Flask to load your `.env` and `.flaskenv`.
 
 ```shell
-pipenv install Flask Flask-WTF python-dotenv
+`pipenv install Flask Flask-WTF python-dotenv`
 ```
 
 Once it installs, activate the virtual environment.
