@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +8,44 @@
     <title>Calendar This</title>
 </head>
 <body>
-    <h1>Calendar working</h1>
-    {% block main %}
-    {% endblock %}
+    <table>
+        <form method="post">
+        {{ form.csrf_token }}
+        <div class="form-row">{{ form.name.label }} {{ form.name }}</div>
+        <div class="form-row">{{ form.start_date.label }} {{ form.start_date }}</div>
+        <div class="form-row">{{ form.start_time.label }} {{ form.start_time }}</div>
+        <div class="form-row">
+          {{ form.end_date.label }} {{ form.end_date }}
+
+          {% if form.end_date.errors %}
+            <ul class="errors">
+              {% for error in form.end_date.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="form-row">{{ form.end_time.label }} {{ form.end_time }}</div>
+        <div class="form-row">{{ form.description.label }} {{ form.description }}</div>
+        <div class="form-row">{{ form.private.label }} {{ form.private }}</div>
+        <div class="form-actions">{{ form.submit }}</div>
+      </form>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2].strftime("%H:%M") }}</td>
+                <td>{{ row[3].strftime("%H:%M") }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

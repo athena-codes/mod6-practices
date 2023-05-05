@@ -227,6 +227,18 @@ specification.
 | description    | TEXT         | Not Null    |
 | private        | BOOLEAN      | Not Null    |
 
+** SQL CODE ***
+
+CREATE TABLE appointments (
+id INTEGER PRIMARY KEY,
+name VARCHAR(200) NOT NULL,
+start_datetime TIMESTAMP NOT NULL,
+end_datetime TIMESTAMP NOT NULL,
+description TEXT NOT NULL,
+private BOOLEAN NOT NULL
+);
+
+
 Go ahead and put one record in there so that you can see it in the browser as
 you're developing. Wherever you see "«DATE»" in the following SQL, please insert
 the current date in "YYYY-MM-DD" format.
@@ -234,7 +246,7 @@ the current date in "YYYY-MM-DD" format.
 ```sql
 INSERT INTO appointments (name, start_datetime, end_datetime, description, private)
 VALUES
-('My appointment', '«DATE» 14:00:00', '«DATE» 15:00:00',
+('My appointment', '2023-05-04 14:00:00', '2023-05-04 15:00:00',
  'An appointment for me', false);
 ```
 
