@@ -3,6 +3,7 @@ import sqlite3
 from datetime import datetime
 from flask import Blueprint, render_template, redirect, url_for
 from ..forms.forms import AppointmentForm
+from wtforms.validators import ValidationError
 
 bp = Blueprint('main', __name__, url_prefix='/books')
 
@@ -13,6 +14,15 @@ DB_FILE = os.environ.get('DB_FILE') or 'not found'
 def main():
     form = AppointmentForm()
     if form.validate_on_submit():
+        start = datetime.combine(form.start_date.data, form.start_time.data)
+        end = datetime.combine(form.end_date.data, form.end_time.data)
+        if start >= end:
+            msg = "End date/time must come after start date/time"
+            raise ValidationError(msg)
+        elif start.date() != end.date():
+            msg = "End date must be on the same day as start date"
+            raise ValidationError(msg)
+
         params = {
             'name': form.name.data,
             'start_datetime': datetime.combine(form.start_date.data, form.start_time.data),
