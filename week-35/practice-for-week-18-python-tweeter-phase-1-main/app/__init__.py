@@ -15,7 +15,7 @@ app.config.from_object(Config)
 @app.route('/')
 def index():
     tweet = choice(tweets)
-    return render_template("index.html", tweet=tweet)
+    return render_template("index.html")
 
 @app.route('/feed')
 def all_tweets():
