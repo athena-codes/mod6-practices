@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <i class="fab fa-instagram"></i>
+        <h1>Billstagram</h1>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="nav-icons">
+        <a href="/"><i class="fas fa-home"></i></a>
+        <a href="/{{user.id}}/new"><i class="fas fa-paper-plane"></i></a>
+        <a href="#"><i class="fas fa-compass"></i></a>
+        <a href="#"><i class="fas fa-heart"></i></a>
+        <a href="#"><i class="fas fa-user"></i></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <!-- User info -->
+      {% if user %}
+        {%include 'profile.html'%}
+      {% endif %}
+      <!-- Posts info -->
+      {% if posts %}
+        {% include 'posts.html' %}
+      {% endif %}
+      <!-- New Post -->
+      {% if form %}
+        {% include 'new_post.html' %}
+      {% endif %}
+    </div>
+  </main>
+</body>
+
+</html>

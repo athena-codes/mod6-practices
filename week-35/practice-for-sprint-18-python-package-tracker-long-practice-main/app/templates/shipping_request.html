@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Shipping Requests</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.sender_name.label }} {{ form.sender_name }}
+        </div>
+        <div>
+            {{ form.recipient_name.label }} {{ form.recipient_name }}
+        </div>
+        <div>
+            {{ form.origin.label }} {{ form.origin }}
+        </div>
+        <div>
+            {{ form.destination.label }} {{ form.destination }}
+        </div>
+        <div>
+            {{ form.express_shipping.label }} {{ form.express_shipping }}
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <a href="{{ url_for('home.root_endpoint') }}">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

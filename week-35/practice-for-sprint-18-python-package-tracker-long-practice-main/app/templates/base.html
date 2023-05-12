@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Package Tracker</title>
+</head>
+<body>
+     <nav>
+      <ul>
+        <li><a href="{{ url_for('new_package.new_package') }}">New Package</a></li>
+        <li><a href="{{ url_for('home.root_endpoint') }}">Package Status</a></li>
+      </ul>
+    </nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>
